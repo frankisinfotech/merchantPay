@@ -21,4 +21,14 @@ jobs:
         run: hostnamectl 
       - name: getDiskUsage
         run: df -Th
+
+    OSVersionCopy:
+      runs-on: ubuntu-latest
+      needs: OSVersion
+      
+      steps:
+      - name: ubuntuVersion
+        run: hostnamectl 
+      - name: getDiskUsage
+        run: df -Th
   
