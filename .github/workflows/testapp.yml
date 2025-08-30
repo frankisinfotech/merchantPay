@@ -12,11 +12,11 @@ jobs:
       - name: Maven Version
         run: mvn --version
 
-    pingApps:
+    OSVersion:
       runs-on: ubuntu-latest
       steps:
-      - name: pingGoogle
-        run: ping -c 4 google.com
-      - name: pingFacebook
-        run: ping -c 4 facebook.com
+      - name: ubuntuVersion
+        run: hostnamectl 
+      - name: getDiskUsage
+        run: df -Th
   
