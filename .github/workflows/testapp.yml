@@ -10,7 +10,7 @@ jobs:
       - name: Docker Version
         run: docker --version
       - name: Maven Version
-        run: mvn version
+        run: mvn --version
 
     pingApps:
       runs-on: ubuntu-latest
