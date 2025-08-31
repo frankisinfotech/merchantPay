@@ -1,5 +1,10 @@
 name: TestApps
-on: workflow_dispatch
+on: 
+    push:
+        branches:
+        - dev
+        
+# on: workflow_dispatch
 jobs:
 
     GetAppVersions:
