@@ -7,7 +7,7 @@ pipeline {
                 sh '''
                   sudo yum install httpd -y
                   sudo systemctl restart httpd
-                  cd /var/www/html && wget https://github.com/codingstella/personal-blog-website/archive/refs/heads/main.zip -O site.zip && sudo unzip site.zip -d /var/www/html && rm site.zip
+                  sudo cd /var/www/html && wget https://github.com/codingstella/personal-blog-website/archive/refs/heads/main.zip -O site.zip && sudo unzip site.zip -d /var/www/html && rm site.zip
                  '''
                   
             }
