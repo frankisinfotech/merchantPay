@@ -4,7 +4,7 @@ Bootstrap Simple Admin Template stands out as a versatile and feature-rich admin
 Whether you're managing a website, building SaaS platforms, or creating e-commerce admin portals, this template is your perfect partner. Fully responsive and built with the power of Bootstrap, it simplifies complex projects and enhances the user experience.
 
 ![Bootstrap Simple Admin Template - Dashboard](https://raw.githubusercontent.com/pro-dev-ph/bootstrap-simple-admin-template/refs/heads/main/dashboard.png)
-
+ 
 ### What's New?
 - Upgrade Bootstrap to version 5.3.3
 - New styles and improved buttons, cards, tabs, forms, bg colors
