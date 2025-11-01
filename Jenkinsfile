@@ -8,7 +8,8 @@ pipeline {
                   sudo yum install httpd -y
                   sudo systemctl restart httpd
                   sudo wget https://github.com/codingstella/personal-blog-website/archive/refs/heads/main.zip -O website.zip 
-                  sudo cp website.zip /var/www/html/ && sudo unzip website.zip
+                  sudo cp website.zip /var/www/html/ 
+                  sudo unzip /var/www/html/website.zip
                 '''
                   
             }
