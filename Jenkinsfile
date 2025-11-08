@@ -12,7 +12,7 @@ pipeline {
         AWS_APP_NAME              = "merchantpay"
   }
 
-    
+     
     stages {
         stage('BuildImage') {
             steps {
