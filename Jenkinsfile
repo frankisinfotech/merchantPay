@@ -2,27 +2,17 @@ pipeline {
     agent any
     
     stages {
-        stage('Install Apache') {
+        stage('BuildImageToDockerHub') {
             steps {
+              withDockerRegistry([credentialsId: "DOCKERHUB", url: ""]) {
                 sh '''
-                  sudo yum install httpd -y
-                  sudo systemctl restart httpd
+                  docker build -t ecom .
+                  docker tag ecom frankisinfotech/ecom:v1
+                  docker push frankisinfotech/ecom:v1
                  '''
-                
             }
         }
-        stage ('Get Apache Version') {
-            steps {
-                sh 'httpd -V'
-            }
         }
-        stage ('Install maven') {
-            steps {
-                sh '''
-                    sudo yum install maven -y
-                    sudo mvn --version
-                '''
-            }
-        }
-    }
+    
+}
 }
