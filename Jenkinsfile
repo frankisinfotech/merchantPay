@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('BuildImageToDockerHub') {
+        stage('BuildImage') {
             steps {
               withDockerRegistry([credentialsId: "DOCKERHUB", url: ""]) {
                 sh '''
