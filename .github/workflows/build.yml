@@ -4,7 +4,7 @@ on: push
     
 jobs:
 
-  build:
+  buildToDockerHub:
 
     runs-on: ubuntu-latest
 
@@ -23,3 +23,26 @@ jobs:
       run: |
           docker build -t frankisinfotech/bulb:$GITHUB_RUN_NUMBER .
           docker push frankisinfotech/bulb:$GITHUB_RUN_NUMBER
+
+  buildToAWSPrivateECR:
+    needs: buildToDockerHub
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: AWS ECR Docker Login
+      uses: elgohr/ecr-login-action@v3
+      with:
+        access_key: ${{ secrets.ACCESS_KEY }}
+        secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+        region: ${{ secrets.REGION }}
+          
+
+    - name: Authenticate to ECR
+      run: aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 798470206542.dkr.ecr.eu-west-1.amazonaws.com
+      # run: |
+      #     docker build -t frankisinfotech/bulb:$GITHUB_RUN_NUMBER .
+      #     docker push frankisinfotech/bulb:$GITHUB_RUN_NUMBER
