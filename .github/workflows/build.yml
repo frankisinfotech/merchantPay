@@ -23,5 +23,4 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: frankisinfotech/bulb
-        push: true
-        tags: ${GITHUB_RUN_NUMBER}
+        run: docker push frankisinfotech/bulb:$GITHUB_RUN_NUMBER
