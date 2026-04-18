@@ -33,12 +33,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: AWS ECR Docker Login
-      uses: elgohr/ecr-login-action@v3
+    - name: Login to Private ECR
+      uses: docker/login-action@v3
       with:
-        access_key: ${{ secrets.ACCESS_KEY }}
-        secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-        region: ${{ secrets.REGION }}
+          registry: 798470206542.dkr.ecr.eu-west-1.amazonaws.com
+          username: ${{ secrets.ACCESS_KEY }}
+          password: ${{ secrets.SECRET_ACCESS_KEY }}
+        env:
+          aws-region: ${{ secrets.REGION }}
+
+    - name: Build Image
+      run: |
+          docker build -t mpay .
+          docker tag mpay:latest 798470206542.dkr.ecr.eu-west-1.amazonaws.com/mpay:$GITHUB_RUN_NUMBER
+          docker push 798470206542.dkr.ecr.eu-west-1.amazonaws.com/mpay:$GITHUB_RUN_NUMBER
+
           
 
     - name: Authenticate to ECR
