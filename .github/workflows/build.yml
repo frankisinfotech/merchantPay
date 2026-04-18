@@ -1,0 +1,27 @@
+name: DockerImageBuild
+
+on: push   
+    
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build the Docker image
+      #run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)      
+      run: docker build --tag frankisinfotech/bulb:${GITHUB_NUMBER}     
+      
+   
+   
+    - name: Login and push to dockerHUB
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        repository: frankisinfotech/bulb
+        push: true
+        tags: ${GITHUB_NUMBER}
