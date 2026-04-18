@@ -1,5 +1,7 @@
 name: deploy dashboard
-on: push
+on: workflow_dispatch
+# on: push
+
 
 jobs:
 
