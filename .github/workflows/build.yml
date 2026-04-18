@@ -24,7 +24,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        registry: frankisinfotech/bulb
+        # registry: frankisinfotech/bulb
 
     - name: Build Image
       run: |
