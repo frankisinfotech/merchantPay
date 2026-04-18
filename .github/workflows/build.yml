@@ -39,7 +39,7 @@ jobs:
           registry: 798470206542.dkr.ecr.eu-west-1.amazonaws.com
           username: ${{ secrets.ACCESS_KEY }}
           password: ${{ secrets.SECRET_ACCESS_KEY }}
-        env:
+      env:
           aws-region: ${{ secrets.REGION }}
 
     - name: Build Image
